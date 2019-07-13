@@ -1,0 +1,12 @@
+#!/bin/bash
+numlockx on &
+hsetroot -fill /home/bcd0101/.Wall/wallhaven-740260.jpg &
+sudo ip link set enp3s0 up &
+nm-applet &
+blueman-applet &
+volnoti &
+lxpanel &
+compton &
+conky &
+setxkbmap es &
+nvidia-settings --assign CurrentMetaMode="VGA-0:1366x768_60 +0+0 { ForceFullCompositionPipeline = On }" &
