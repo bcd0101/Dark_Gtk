@@ -1,0 +1,81 @@
+background yes
+use_xft yes
+xftfont Roboto:size=9
+xftalpha 0.4
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_transparent yes
+##############################################
+# Compositing tips:
+# Conky can play strangely when used with
+# different compositors. I have found the
+# following to work well, but your mileage
+# may vary. Comment/uncomment to suit.
+##############################################
+## no compositor
+#own_window_type override
+#own_window_argb_visual no
+
+## xcompmgr
+#own_window_type override
+#own_window_argb_visual yes
+
+## cairo-compmgr
+own_window_type desktop
+own_window_argb_visual yes
+##############################################
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_margin 5
+border_width 1
+default_color 708090
+default_shade_color 000000
+default_outline_color 000000
+alignment top_left
+minimum_size 650 300
+maximum_width 580
+gap_x 880
+gap_y 10
+alignment top_right
+no_buffers yes
+uppercase no
+cpu_avg_samples 4
+net_avg_samples 2
+short_units yes
+text_buffer_size 2048
+use_spacer none
+override_utf8_locale yes
+color1 212021
+color2 E8E1E6
+color3 E82A2A
+own_window_argb_value 0
+own_window_colour 000000
+TEXT
+${goto 245}${voffset 25}${font GeosansLight:size=25} Today
+${goto 124}${voffset -}${font GeosansLight:light:size=70}${time %I:%M}${image .conky/line.png -p 350,22 -s 3x220}
+${offset 150}${voffset -55}${font GeosansLight:size=17}${time %A, %d %B}
+${offset 180}${voffset -}${font GeosansLight:size=10}${uptime}
+${offset 380}${voffset -177}${font GeosansLight:size=25}Systems${font GeosansLight:size=22}
+${offset 400}${voffset 5}${font GeosansLight:size=15}${exec sensors | grep 'CPU Temperature' | cut -c22-23}°C
+${offset 400}${voffset 10}${cpu cpu0}% ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% / 100%
+${offset 400}${voffset 4} $memfree / $memmax${font GeosansLight:size=15}
+${offset 400}${voffset 5}${if_existing /proc/net/route wlp0s18f2u4}${upspeed wlp0s18f2u4} kb/s / ${totalup wlp0s18f2u4}${endif}${if_existing /proc/net/route enp3s0}${upspeed enp3s0} kb/s / ${totalup enp3s0}${endif}
+${offset 400}${voffset 5}${if_existing /proc/net/route wlp0s18f2u4}${downspeed wlp0s18f2u4} kb/s / ${totaldown wlp0s18f2u4}${endif}${if_existing /proc/net/route enp3s0}${downspeed enp3s0} kb/s / ${totaldown enp3s0}${endif}
+
+
+${goto 373}${voffset -162}${font Dingytwo:size=17}M$font 
+${goto 373}${voffset 7}${font Dingytwo:size=17}7$font 
+${goto 373}${voffset 1}${font Dingytwo:size=17}O$font 
+${goto 373}${voffset 1}${font Dingytwo:size=17}5$font 
+${goto 373}${voffset 1}${font Dingytwo:size=17}4$font 
+
+${font GeosansLight:size=12}${goto 200}${voffset -1}${offset 175}${if_running audacious}${exec audtool --current-song-tuple-data artist} - ${exec audtool --current-song-tuple-data title}
+${font GeosansLight:size=12}${goto 200}${voffset -1}${offset 175}${exec audtool --current-song-output-length}  / ${exec audtool --current-song-length} 
+${font GeosansLight:size=12}${goto 200}${voffset -1}${offset 175}${execbar expr 100 \* $(audtool --current-song-output-length-seconds) \/ $(audtool --current-song-length-seconds)}
+${font GeosansLight:size=12}${goto 200}${voffset -1}${offset 175}${exec audtool --current-song-bitrate-kbps} kbps${endif}
