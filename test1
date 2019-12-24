@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+
+            ANS=$(echo " Suspend| Logout| Reboot| Shutdown" | \
+                rofi -sep "|" -dmenu -i -p 'System: ' "" -width 20 \
+                -hide-scrollbar -eh 1 -line-padding 4 -padding 20 -lines 4)
+            case "$ANS" in
+                *Suspend) systemctl suspend ;;
+                *Logout)  killall openbox ;;
+                *Reboot) systemctl reboot ;;
+                *Shutdown) systemctl poweroff ;;
+
+exit 0
