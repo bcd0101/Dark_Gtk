@@ -388,33 +388,6 @@
         <command>/home/bcd0101/.scripts/Shutdown_Xdialog.sh</command>
       </action>
      </keybind>
-       <keybind key="XF86AudioRaiseVolume">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>VolumeUP</name>
-        </startupnotify>		  
-        <command>/home/bcd0101/.scripts/audio.sh up</command>
-      </action>
-    </keybind>
-         <keybind key="XF86AudioLowerVolume">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>VolumeDW</name>
-        </startupnotify>
-        <command>/home/bcd0101/.scripts/audio.sh down</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioMute">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>VolumeMT</name>
-        </startupnotify>
-        <command>/home/bcd0101/.scripts/audio.sh mute</command>
-      </action>
-    </keybind>
     <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>
